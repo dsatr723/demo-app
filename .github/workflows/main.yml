@@ -26,8 +26,15 @@ jobs:
       - uses: actions/checkout@v2
 
       # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - name: Run Shiftleft Source code scan
+        env:
+              CHKP_CLOUDGUARD_ID: cf8eed92-abaf-48ad-94e8-3a8668d5c2ea
+              CHKP_CLOUDGUARD_SECRET: jju394fcckup44b1c7q8g6qa
+        run: 
+              chmod +x ./shiftleft
+              git clone https://github.com/chkp-rolandop/demo-app
+              ./shiftleft code-scan -s .
+
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
